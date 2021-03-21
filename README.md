@@ -2,7 +2,7 @@
 Repos for CS4367
 
 ## Part 1:
-Method __doAnalysis__ has been implemented as in __DominatorFinder.java__. 
+Method __doAnalysis__ has been implemented as in __DominatorFinder.java__. The method did the job decently and precisely.
 
 
 ## Part 2:
