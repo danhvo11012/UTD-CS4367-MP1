@@ -14,7 +14,7 @@ When CHA mode was on (enableCHACallGraph()), the attempt resulted in __Total Edg
 When PTA mode was on (enableSparkCallGraph()), the attemp resulted in __Total Edges = 7__ and took __3 seconds__.
 
 ###### Conclusion
-For this particular case of Example.java, CHA performed with more precisely and efficient in comparison with PTA
+For this particular case of Example.java, PTA performed is more precise (7 edges versus 12 edges), yet less efficient (2 seconds versus 3 seconds), in comparison with CHA
 
 ## Part 3:
 ###### Tracing Heap Accesses
