@@ -18,8 +18,8 @@ For this particular case of Example.java, PTA performed is more precise (7 edges
 
 ## Part 3:
 ###### Tracing Heap Accesses
-TestSootLogging Heap.java was improvised so that internalTransform can produce desired output. The code is as follows:
-```
+TestSootLoggingHeap.java was improvised so that internalTransform can produce desired output. The code is as follows:
+
 	int isStatic = (stmt.getFieldRef().getClass().getName().equals("soot.jimple.StaticFieldRef"))? 1 : 0;
 	String subClassName = stmt.getDefBoxes().get(0).getValue().getClass().getName();
 	int isWrite = (subClassName.equals("soot.jimple.StaticFieldRef") || subClassName.equals("soot.jimple.internal.JInstanceFieldRef")) ? 1 : 0;
@@ -33,5 +33,16 @@ TestSootLogging Heap.java was improvised so that internalTransform can produce d
 		    		
 	InvokeExpr printExpr = Jimple.v().newStaticInvokeExpr(logFieldAccMethod, args);
 	InvokeStmt invokeStmt = Jimple.v().newInvokeStmt(printExpr);
-	b.getUnits().insertBefore(invokeStmt,stmt);```
+	b.getUnits().insertBefore(invokeStmt,stmt);
 
+
+The printed output of this part is:
+
+	Thread main wrote static field <a1.HelloThread: int x>
+	Thread main read instance field <a1.HelloThread$TestThread: int y> of object Thread[Thread-9,5,main]
+	Thread main read static field <a1.HelloThread: int x>
+	Thread main read static field <java.lang.System: java.io.PrintStream out>
+	Thread Thread-0 wrote static field <a1.HelloThread: int x>
+	Thread Thread-0 read instance field <a1.HelloThread$TestThread: int y> of object Thread[Thread-10,5,main]
+	Thread Thread-0 wrote instance field <a1.HelloThread$TestThread: int y> of object Thread[Thread-10,5,main]
+	1
